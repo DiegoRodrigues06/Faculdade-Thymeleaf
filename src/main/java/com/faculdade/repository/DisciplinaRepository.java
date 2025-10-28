@@ -1,6 +1,9 @@
 package com.faculdade.repository;
 
-import com.faculdade.models.*;
+import com.faculdade.models.Disciplina;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface DisciplinaRepository extends JpaRepository<Disciplina, Integer> {}
+@Repository
+public interface DisciplinaRepository extends JpaRepository<Disciplina, Integer> {
+}

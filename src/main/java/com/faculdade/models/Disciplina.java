@@ -6,6 +6,7 @@ import java.util.List;
 
 @Entity
 public class Disciplina {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -15,7 +16,15 @@ public class Disciplina {
     @ManyToMany(mappedBy = "disciplinas")
     private List<Curso> cursos = new ArrayList<>();
 
-    public Disciplina() { }
+    @ManyToMany
+    @JoinTable(
+            name = "disciplina_professor",
+            joinColumns = @JoinColumn(name = "disciplina_id"),
+            inverseJoinColumns = @JoinColumn(name = "professor_id")
+    )
+    private List<Professor> professores = new ArrayList<>();
+
+    public Disciplina(){}
 
     // Getters e Setters
     public int getId() { return id; }
@@ -26,4 +35,7 @@ public class Disciplina {
 
     public List<Curso> getCursos() { return cursos; }
     public void setCursos(List<Curso> cursos) { this.cursos = cursos; }
+
+    public List<Professor> getProfessores() { return professores; }
+    public void setProfessores(List<Professor> professores) { this.professores = professores; }
 }

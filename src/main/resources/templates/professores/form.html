@@ -23,15 +23,27 @@
     <div class="container">
         <h2>Novo Professor</h2>
         <form th:action="@{/professores}" th:object="${professor}" method="post">
+
             <label>Nome:</label>
-            <input type="text" th:field="*{nome}" /><br />
+            <input type="text" th:field="*{nome}" required/>
+            <br>
 
             <label>Departamento:</label>
-            <input type="text" th:field="*{departamento}" /><br />
+            <input type="text" th:field="*{departamento}" required/>
+            <br>
 
-            <button type="submit">Salvar</button>
+            <label for="disciplinas">Disciplinas:</label>
+            <select id="disciplinas"
+                    th:field="*{disciplinas}"
+                    style="width:100%; border-radius:8px; padding:6px;">
+                <option th:each="d : ${disciplinas}"
+                        th:value="${d.id}"
+                        th:text="${d.nome}">
+                </option>
+            </select>
+            <br>
+            <button type="submit">Salvar</button> <br>
         </form>
-
         <a th:href="@{/professores}">Voltar</a>
     </div>
 </body>

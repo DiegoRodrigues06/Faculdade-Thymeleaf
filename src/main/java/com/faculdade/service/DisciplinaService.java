@@ -7,6 +7,7 @@ import java.util.List;
 
 @Service
 public class DisciplinaService {
+
     private final DisciplinaRepository repo;
 
     public DisciplinaService(DisciplinaRepository repo) {
@@ -17,15 +18,15 @@ public class DisciplinaService {
         return repo.findAll();
     }
 
+    public Disciplina buscarPorId(int id) {
+        return repo.findById(id).orElse(null);
+    }
+
     public void salvar(Disciplina disciplina) {
         repo.save(disciplina);
     }
 
     public void excluir(int id) {
         repo.deleteById(id);
-    }
-
-    public Disciplina buscarPorId(int id) {
-        return repo.findById(id).orElse(null);
     }
 }

@@ -29,18 +29,28 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Matricula</th>
                     <th>Nome</th>
                     <th>Departamento</th>
+                    <th>Disciplinas</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="prof : ${professores}">
-                    <td th:text="${prof.id}"></td>
+                    <td th:text="${prof.matricula}"></td>
                     <td th:text="${prof.nome}"></td>
                     <td th:text="${prof.departamento}"></td>
-                    <td><a th:href="@{'/professores/excluir/' + ${prof.id}}">Excluir</a></td>
+                    <td>
+                        <span th:if="${#lists.isEmpty(prof.disciplinas)}">—</span>
+                            <span th:if="${!#lists.isEmpty(prof.disciplinas)}">
+                                <span th:each="disc, iterStat : ${prof.disciplinas}">
+                                    <span th:text="${disc.nome}"></span>
+                                    <span th:if="${!iterStat.last}">, </span>
+                                </span>
+                            </span>
+                    </td>
+                    <td><a th:href="@{'/professores/excluir/' + ${prof.matricula}}">Excluir</a></td>
                 </tr>
             </tbody>
         </table>
