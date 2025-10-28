@@ -22,6 +22,8 @@ public class Curso {
     )
     private List<Disciplina> disciplinas = new ArrayList<>();
 
+    public Curso() { }
+
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

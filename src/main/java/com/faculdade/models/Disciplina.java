@@ -15,6 +15,8 @@ public class Disciplina {
     @ManyToMany(mappedBy = "disciplinas")
     private List<Curso> cursos = new ArrayList<>();
 
+    public Disciplina() { }
+
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

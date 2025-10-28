@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><meta charset="UTF-8"><title>Professores</title></head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Professores</title>
+
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 80px;
+            max-width: 600px;
+            text-align: center;
+            display: grid;
+        }
+    </style>
+</head>
+
 <body>
-<h2>Professores</h2>
-<a th:href="@{/professores/novo}">Novo Professor</a>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th><th>Nome</th><th>Departamento</th><th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="prof : ${professores}">
-        <td th:text="${prof.id}"></td>
-        <td th:text="${prof.nome}"></td>
-        <td th:text="${prof.departamento}"></td>
-        <td><a th:href="@{'/professores/excluir/' + ${prof.id}}">Excluir</a></td>
-    </tr>
-    </tbody>
-</table>
+    <div class="container">
+        <h2>Professores</h2>
+        <a th:href="@{/professores/novo}">Novo Professor</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Departamento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="prof : ${professores}">
+                    <td th:text="${prof.id}"></td>
+                    <td th:text="${prof.nome}"></td>
+                    <td th:text="${prof.departamento}"></td>
+                    <td><a th:href="@{'/professores/excluir/' + ${prof.id}}">Excluir</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/}">Voltar</a>
+    </div>
 </body>
+
 </html>

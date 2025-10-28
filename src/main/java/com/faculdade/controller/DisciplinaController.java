@@ -18,13 +18,13 @@ public class DisciplinaController {
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("disciplinas", service.listarTodos());
-        return "disciplinas/lista";
+        return "disciplina/lista";
     }
 
     @GetMapping("/novo")
     public String novoForm(Model model) {
         model.addAttribute("disciplina", new Disciplina());
-        return "disciplinas/form";
+        return "disciplina/form";
     }
 
     @PostMapping

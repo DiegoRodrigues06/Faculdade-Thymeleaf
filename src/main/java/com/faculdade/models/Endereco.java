@@ -20,6 +20,8 @@ public class Endereco {
     public void setId(int id) {this.id = id;}
     public String getRua() {return rua;}
 
+    public Endereco() { }
+
     public void setRua(String rua) {this.rua = rua;}
     public String getComplemento() {return complemento;}
     public void setComplemento(String complemento) {this.complemento = complemento;}

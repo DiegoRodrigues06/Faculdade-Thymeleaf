@@ -11,6 +11,8 @@ public class Professor {
     private String nome;
     private String departamento;
 
+    public Professor() { }
+
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

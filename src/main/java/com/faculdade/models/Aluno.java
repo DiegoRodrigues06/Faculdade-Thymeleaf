@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Aluno {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int matricula;
     private String nome;
 
@@ -15,6 +16,10 @@ public class Aluno {
     @ManyToOne
     @JoinColumn(name="curso_id")
     private Curso curso;
+
+
+    public Aluno() { }
+    //construtor vazio porque models JPA não precisam de construtor explicito, apenas um padrão vazio serve
 
     // Getters e Setters
     public int getMatricula() { return matricula; }
