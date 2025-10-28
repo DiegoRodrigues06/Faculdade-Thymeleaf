@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Novo Curso</title></head>
+<body>
+<h2>Novo Curso</h2>
+<form th:action="@{/cursos}" th:object="${curso}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" /><br/>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a th:href="@{/cursos}">Voltar</a>
+</body>
+</html>

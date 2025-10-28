@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Novo Professor</title></head>
+<body>
+<h2>Novo Professor</h2>
+<form th:action="@{/professores}" th:object="${professor}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" /><br/>
+
+    <label>Departamento:</label>
+    <input type="text" th:field="*{departamento}" /><br/>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a th:href="@{/professores}">Voltar</a>
+</body>
+</html>
